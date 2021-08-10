@@ -1,14 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class Contacts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
-    return <div>this is the contact list</div>;
+    console.log(this.props.contactList);
+    return (
+      <div>
+        <h3>this is the contact list</h3>
+        <ul>
+          {this.props.contactList.map((contact, index) => {
+            return <li key={index}> {contact.name} </li>;
+          })}
+        </ul>
+      </div>
+    );
   }
 }
 
-export default Contacts;
+function mapStateToProps(state) {
+  return {
+    contactList: state.contactList,
+  };
+}
+
+const ConnectedContactList = connect(mapStateToProps)(Contacts);
+export default ConnectedContactList;
