@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 class Contacts extends React.Component {
   render() {
-    console.log(this.props.contactList);
     return (
       <div>
         <h3>this is the contact list</h3>
@@ -12,6 +11,7 @@ class Contacts extends React.Component {
             return <li key={index}> {contact.name} </li>;
           })}
         </ul>
+        <button>Add Contact</button>
       </div>
     );
   }
