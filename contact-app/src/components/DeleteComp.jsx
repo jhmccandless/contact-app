@@ -5,10 +5,18 @@ class DeleteCont extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    console.log(props.match.params);
   }
   render() {
-    return <div>deleting div</div>;
+    console.log(this.props.match.params.index);
+
+    return (
+      <div>
+        <h3>Contact:</h3>
+        <p>{this.props.match.params.index}</p>
+        <h3>Are you sure you want to delete?</h3>
+        <button>OK!</button>
+      </div>
+    );
   }
 }
 
