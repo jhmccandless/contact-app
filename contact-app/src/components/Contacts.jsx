@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Contacts extends React.Component {
   render() {
@@ -8,7 +9,13 @@ class Contacts extends React.Component {
         <h3>this is the contact list</h3>
         <ul>
           {this.props.contactList.map((contact, index) => {
-            return <li key={index}> {contact.name} </li>;
+            let pathName = `/delete_contact/${index}`;
+            return (
+              <li key={index}>
+                {contact.name}{" "}
+                <Link to={{ pathname: pathName }}>Delete Contact</Link>
+              </li>
+            );
           })}
         </ul>
         <button>Add Contact</button>

@@ -17,12 +17,11 @@ function App() {
             </h2>
             <Link to="/dashboard">Contact List</Link>
             <Link to="/add_contact">Add a Contact</Link>
-            <Link to="/delete_contact">Delete a Contact</Link>
           </header>
           <Switch>
             <Route exact path="/dashboard" component={Contacts} />
             <Route path="/add_contact" component={AddContact} />
-            <Route path="/delete_contact" component={DeleteCont} />
+            <Route path="/delete_contact/:index" component={DeleteCont} />
             <Route path="*">
               <Redirect to="/dashboard" />
             </Route>
