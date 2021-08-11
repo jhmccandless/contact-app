@@ -23,5 +23,13 @@ function mapStateToProps(state) {
   };
 }
 
-const ConnectedContactList = connect(mapStateToProps)(Contacts);
+function mapDispatchToProps(data) {
+  return {};
+}
+
+const ConnectedContactList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Contacts);
+
 export default ConnectedContactList;
