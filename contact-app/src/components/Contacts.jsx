@@ -1,29 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { Card } from "@material-ui/core/";
+import { CardContent } from "@material-ui/core";
 
 class Contacts extends React.Component {
   render() {
     return (
-      <div>
-        <h3>this is the contact list</h3>
-        <ul>
-          {this.props.contactList.map((contact, index) => {
-            let pathName = `/contact_info/${index}`;
-            return (
-              <li key={index}>
-                {contact.name}
-                <ul>
-                  <li>City: {contact.city}</li>
-                  <li>State: {contact.state}</li>
-                </ul>
-                <Link to={{ pathname: pathName }}>Contact Info</Link>
-              </li>
-            );
-          })}
-        </ul>
-        <button>Add Contact</button>
-      </div>
+      <Card style={{ maxWidth: "500px", margin: "30px auto" }}>
+        <CardContent>
+          <h3>this is the contact list</h3>
+          <ul>
+            {this.props.contactList.map((contact, index) => {
+              let pathName = `/contact_info/${index}`;
+              return (
+                <li key={index}>
+                  {contact.name}
+                  <ul>
+                    <li>City: {contact.city}</li>
+                    <li>State: {contact.state}</li>
+                  </ul>
+                  <Link to={{ pathname: pathName }}>Contact Info</Link>
+                </li>
+              );
+            })}
+          </ul>
+          <button>Add Contact</button>
+        </CardContent>
+      </Card>
     );
   }
 }

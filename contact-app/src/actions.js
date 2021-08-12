@@ -5,10 +5,12 @@ export function addContact(data) {
   };
 }
 
-export function seeContactInfo(data) {
+export function updateContactInstance(index, key, value) {
   return {
-    type: "SEE_CONTACT",
-    data,
+    type: "UPDATE_CONTACT",
+    index,
+    key,
+    value,
   };
 }
 

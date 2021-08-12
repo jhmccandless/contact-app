@@ -40,11 +40,16 @@ function contacts_reducer(state = initialState, action) {
           },
         ],
       };
-    // case "ADD_CONTACT":
-    //   return {
-    //     ...state,
-    //     contactList: [...state.contactList, { name: action.data.contactList }],
-    //   };
+    case "UPDATE_CONTACT":
+      // ({ ...state }.contactList[action.index].name = action.value);
+      // console.log({ ...state }.contactList[action.index].name);
+      // console.log({ ...state }.contactList);
+      [...state.contactList][action.index][action.key] = action.value;
+      console.log([...state.contactList]);
+      return {
+        ...state,
+        contactList: [...state.contactList],
+      };
     case "DELETE_CONTACT":
       let arr = state.contactList;
       let newContactList = state.contactList.splice(Number(action.id), 1);

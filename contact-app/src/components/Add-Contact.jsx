@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addContact } from "../actions";
+import { Card } from "@material-ui/core/";
+import { CardActions } from "@material-ui/core";
+import { CardContent } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 class AddContact extends React.Component {
   constructor(props) {
@@ -43,184 +47,77 @@ class AddContact extends React.Component {
     });
   }
 
-  //   updateContact(event) {
-  //     console.log(event);
-  //     console.log(event.target);
-  //     // console.log(event.target.value);
-  //     this.setState({ name: event.target.value, email: event.target.value });
-  //   }
-
-  //   render() {
-  //     return (
-  //       <div>
-  //         <form onSubmit={(e) => this.handleSubmit(e)}>
-  //           <label>Name</label>
-  //           <input
-  //             className="name"
-  //             value={this.state.name}
-  //             onChange={(e) => this.updateContact(e)}
-  //           ></input>
-  //           <br />
-  //           <label>Email</label>
-  //           <input
-  //             className="email"
-  //             value={this.state.email}
-  //             onChange={(e) => this.updateContact(e)}
-  //           ></input>
-  //           <br />
-  //           <label>Phone Number</label>
-  //           <input
-  //             className="phone"
-  //             value={this.state.phone}
-  //             onChange={(e) => this.updateContact(e)}
-  //           ></input>
-  //           <br />
-  //           <label>Address</label>
-  //           <input
-  //             className="address"
-  //             value={this.state.address}
-  //             onChange={(e) => this.updateContact(e)}
-  //           ></input>
-  //           <br />
-  //           <label>City</label>
-  //           <input
-  //             className="city"
-  //             value={this.state.city}
-  //             onChange={(e) => this.updateContact(e)}
-  //           ></input>
-  //           <br />
-  //           <label>State</label>
-  //           <input
-  //             className="state"
-  //             value={this.state.state}
-  //             onChange={(e) => this.updateContact(e)}
-  //           ></input>
-  //           <br />
-  //           <label>Zip Code</label>
-  //           <input
-  //             className="zip"
-  //             value={this.state.zip}
-  //             onChange={(e) => this.updateContact(e)}
-  //           ></input>
-  //           <br />
-  //           <button
-  //             type="submit"
-  //             value={this.state.contact}
-  //             onChange={(e) => this.updateContact(e)}
-  //           >
-  //             Add Contact
-  //           </button>
-  //         </form>
-  //       </div>
-  //     );
-  //   }
-  // }
-
-  updateContactName(event) {
+  updateContact(event, attr) {
     console.log(event);
     console.log(event.target);
     // console.log(event.target.value);
-    this.setState({ name: event.target.value });
-  }
-  updateContactEmail(event) {
-    console.log(event);
-    console.log(event.target);
-    // console.log(event.target.value);
-    this.setState({ email: event.target.value });
-  }
-  updateContactPhone(event) {
-    console.log(event);
-    console.log(event.target);
-    // console.log(event.target.value);
-    this.setState({ phone: event.target.value });
-  }
-  updateContactAddress(event) {
-    console.log(event);
-    console.log(event.target);
-    // console.log(event.target.value);
-    this.setState({ address: event.target.value });
-  }
-  updateContactCity(event) {
-    console.log(event);
-    console.log(event.target);
-    // console.log(event.target.value);
-    this.setState({ city: event.target.value });
-  }
-  updateContactState(event) {
-    console.log(event);
-    console.log(event.target);
-    // console.log(event.target.value);
-    this.setState({ state: event.target.value });
-  }
-  updateContactZip(event) {
-    console.log(event);
-    console.log(event.target);
-    // console.log(event.target.value);
-    this.setState({ zip: event.target.value });
+    this.setState({ [attr]: event.target.value });
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>Name</label>
-          <input
-            className="name"
-            value={this.state.name}
-            onChange={(e) => this.updateContactName(e)}
-          ></input>
-          <br />
-          <label>Email</label>
-          <input
-            className="email"
-            value={this.state.email}
-            onChange={(e) => this.updateContactEmail(e)}
-          ></input>
-          <br />
-          <label>Phone Number</label>
-          <input
-            className="phone"
-            value={this.state.phone}
-            onChange={(e) => this.updateContactPhone(e)}
-          ></input>
-          <br />
-          <label>Address</label>
-          <input
-            className="address"
-            value={this.state.address}
-            onChange={(e) => this.updateContactAddress(e)}
-          ></input>
-          <br />
-          <label>City</label>
-          <input
-            className="city"
-            value={this.state.city}
-            onChange={(e) => this.updateContactCity(e)}
-          ></input>
-          <br />
-          <label>State</label>
-          <input
-            className="state"
-            value={this.state.state}
-            onChange={(e) => this.updateContactState(e)}
-          ></input>
-          <br />
-          <label>Zip Code</label>
-          <input
-            className="zip"
-            value={this.state.zip}
-            onChange={(e) => this.updateContactZip(e)}
-          ></input>
-          <br />
-          <button
-            type="submit"
-            value={this.state.contact}
-            onChange={(e) => this.updateContact(e)}
-          >
-            Add Contact
-          </button>
-        </form>
-      </div>
+      <Card style={{ maxWidth: "500px", margin: "0 auto" }}>
+        <CardContent>
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <label>Name</label>
+            <input
+              className="name"
+              value={this.state.name}
+              onChange={(e) => this.updateContact(e, "name")}
+            ></input>
+            <br />
+            <label>Email</label>
+            <input
+              className="email"
+              value={this.state.email}
+              onChange={(e) => this.updateContact(e, "email")}
+            ></input>
+            <br />
+            <label>Phone Number</label>
+            <input
+              className="phone"
+              value={this.state.phone}
+              onChange={(e) => this.updateContact(e, "phone")}
+            ></input>
+            <br />
+            <label>Address</label>
+            <input
+              className="address"
+              value={this.state.address}
+              onChange={(e) => this.updateContact(e, "address")}
+            ></input>
+            <br />
+            <label>City</label>
+            <input
+              className="city"
+              value={this.state.city}
+              onChange={(e) => this.updateContact(e, "city")}
+            ></input>
+            <br />
+            <label>State</label>
+            <input
+              className="state"
+              value={this.state.state}
+              onChange={(e) => this.updateContact(e, "state")}
+            ></input>
+            <br />
+            <label>Zip Code</label>
+            <input
+              className="zip"
+              value={this.state.zip}
+              onChange={(e) => this.updateContact(e, "zip")}
+            ></input>
+            <br />
+            <button
+              type="submit"
+              value={this.state.contact}
+              onChange={(e) => this.updateContact(e)}
+            >
+              Add Contact
+            </button>
+          </form>
+        </CardContent>
+      </Card>
     );
   }
 }
