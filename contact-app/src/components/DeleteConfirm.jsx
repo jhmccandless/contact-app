@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-class DeleteCont extends React.Component {
+class DeleteComfirm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -13,25 +13,12 @@ class DeleteCont extends React.Component {
   };
 
   render() {
-    let keys = Object.keys(this.props.contRemove);
-    console.log(
-      keys.map((el) => {
-        console.log(this.props.contRemove[`${el}`]);
-      })
-    );
     return (
       <div>
-        <h3>Contact:</h3>
-        {Object.keys(this.props.contRemove).map((el) => {
-          return (
-            <ul>
-              <li>
-                {el}: {this.props.contRemove[`${el}`]}
-              </li>
-            </ul>
-          );
-        })}
-        <h3>Are you sure you want to delete?</h3>
+        <h3>Delete contact?</h3>
+        <ul>
+          <li>{this.props.contInfo.name}</li>
+        </ul>
         <button onClick={this.handleClick}>OK!</button>
       </div>
     );
@@ -41,10 +28,9 @@ class DeleteCont extends React.Component {
 function mapStateToProps(state, ownProps) {
   let id = ownProps.match.params.index;
   return {
-    contRemove: state.contactList[id],
+    contInfo: state.contactList[id],
   };
 }
-
 function mapDispatchToProps(dispatch) {
   return {
     deleteContact: (id) => {
@@ -53,9 +39,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const ConnectedDeleteContact = connect(
+const connectedDeleteConfirm = connect(
   mapStateToProps,
   mapDispatchToProps
-)(DeleteCont);
+)(DeleteComfirm);
 
-export default ConnectedDeleteContact;
+export default connectedDeleteConfirm;

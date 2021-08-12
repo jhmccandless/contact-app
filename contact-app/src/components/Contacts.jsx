@@ -9,7 +9,7 @@ class Contacts extends React.Component {
         <h3>this is the contact list</h3>
         <ul>
           {this.props.contactList.map((contact, index) => {
-            let pathName = `/delete_contact/${index}`;
+            let pathName = `/contact_info/${index}`;
             return (
               <li key={index}>
                 {contact.name}

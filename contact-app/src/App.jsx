@@ -1,9 +1,10 @@
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 
-import DeleteCont from "./components/DeleteComp";
+import ContactInfo from "./components/ContactInfo";
 import AddContact from "./components/Add-Contact";
 import Contacts from "./components/Contacts";
+import DeleteConfirm from "./components/DeleteConfirm";
 import store from "./store";
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Switch>
             <Route exact path="/dashboard" component={Contacts} />
             <Route path="/add_contact" component={AddContact} />
-            <Route path="/delete_contact/:index" component={DeleteCont} />
+            <Route path="/contact_info/:index" component={ContactInfo} />
+            <Route path="/delete_confirm/:index" component={DeleteConfirm} />
             <Route path="*">
               <Redirect to="/dashboard" />
             </Route>
