@@ -12,7 +12,7 @@ class Contacts extends React.Component {
             let pathName = `/delete_contact/${index}`;
             return (
               <li key={index}>
-                {contact.name}{" "}
+                {contact.name}
                 <Link to={{ pathname: pathName }}>Delete Contact</Link>
               </li>
             );

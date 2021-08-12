@@ -4,3 +4,10 @@ export function addContact(data) {
     data,
   };
 }
+
+export function deleteContact(data) {
+  return {
+    type: "DELETE_CONTACT",
+    data,
+  };
+}

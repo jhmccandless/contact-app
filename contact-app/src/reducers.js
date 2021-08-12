@@ -22,6 +22,7 @@ const initialState = {
 };
 
 function contacts_reducer(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
     case "ADD_CONTACT":
       return {
@@ -29,7 +30,12 @@ function contacts_reducer(state = initialState, action) {
         contactList: [...state.contactList, { name: action.data.contactList }],
       };
     case "DELETE_CONTACT":
-      return {};
+      let arr = state.contactList;
+      let newContactList = state.contactList.splice(Number(action.id), 1);
+      return {
+        ...state,
+        contactList: arr,
+      };
     default:
       return state;
   }

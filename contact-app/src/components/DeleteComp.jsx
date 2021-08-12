@@ -6,26 +6,37 @@ class DeleteCont extends React.Component {
     super(props);
     this.state = {};
   }
-  render() {
-    console.log(this.props.match.params.index);
 
+  handleClick = () => {
+    this.props.deleteContact(this.props.match.params.index);
+    this.props.history.push("/");
+  };
+
+  render() {
     return (
       <div>
         <h3>Contact:</h3>
-        <p>{this.props.match.params.index}</p>
+        {this.props.contRemove.name}
         <h3>Are you sure you want to delete?</h3>
-        <button>OK!</button>
+        <button onClick={this.handleClick}>OK!</button>
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {};
+function mapStateToProps(state, ownProps) {
+  let id = ownProps.match.params.index;
+  return {
+    contRemove: state.contactList[id],
+  };
 }
 
-function mapDispatchToProps(data) {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    deleteContact: (id) => {
+      dispatch({ type: "DELETE_CONTACT", id });
+    },
+  };
 }
 
 const ConnectedDeleteContact = connect(
