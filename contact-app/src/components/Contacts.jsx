@@ -13,7 +13,11 @@ class Contacts extends React.Component {
             return (
               <li key={index}>
                 {contact.name}
-                <Link to={{ pathname: pathName }}>Delete Contact</Link>
+                <ul>
+                  <li>City: {contact.city}</li>
+                  <li>State: {contact.state}</li>
+                </ul>
+                <Link to={{ pathname: pathName }}>Contact Info</Link>
               </li>
             );
           })}

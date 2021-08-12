@@ -13,10 +13,24 @@ class DeleteCont extends React.Component {
   };
 
   render() {
+    let keys = Object.keys(this.props.contRemove);
+    console.log(
+      keys.map((el) => {
+        console.log(this.props.contRemove[`${el}`]);
+      })
+    );
     return (
       <div>
         <h3>Contact:</h3>
-        {this.props.contRemove.name}
+        {Object.keys(this.props.contRemove).map((el) => {
+          return (
+            <ul>
+              <li>
+                {el}: {this.props.contRemove[`${el}`]}
+              </li>
+            </ul>
+          );
+        })}
         <h3>Are you sure you want to delete?</h3>
         <button onClick={this.handleClick}>OK!</button>
       </div>
