@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateContactInstance } from "../actions";
 import { Card } from "@material-ui/core";
-import { CardActions } from "@material-ui/core";
 import { CardContent } from "@material-ui/core";
-import { Button } from "@material-ui/core";
 
 class ContactInfo extends React.Component {
   constructor(props) {

@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Card } from "@material-ui/core";
+import { CardContent } from "@material-ui/core";
 
 class DeleteComfirm extends React.Component {
   constructor(props) {
@@ -14,13 +16,15 @@ class DeleteComfirm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Delete contact?</h3>
-        <ul>
-          <li>{this.props.contInfo.name}</li>
-        </ul>
-        <button onClick={this.handleClick}>OK!</button>
-      </div>
+      <Card style={{ maxWidth: "500px", margin: "30px auto" }}>
+        <CardContent>
+          <h3>Delete contact?</h3>
+          <ul>
+            <li>{this.props.contInfo.name}</li>
+          </ul>
+          <button onClick={this.handleClick}>OK!</button>
+        </CardContent>
+      </Card>
     );
   }
 }

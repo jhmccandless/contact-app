@@ -2,9 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addContact } from "../actions";
 import { Card } from "@material-ui/core/";
-import { CardActions } from "@material-ui/core";
 import { CardContent } from "@material-ui/core";
-import { Button } from "@material-ui/core";
 
 class AddContact extends React.Component {
   constructor(props) {
@@ -21,9 +19,6 @@ class AddContact extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(event);
-    console.log(this.state);
-    console.log(this.props);
     event.preventDefault();
     this.props.addContact({
       name: this.state.name,
@@ -48,8 +43,6 @@ class AddContact extends React.Component {
   }
 
   updateContact(event, attr) {
-    console.log(event);
-    console.log(event.target);
     // console.log(event.target.value);
     this.setState({ [attr]: event.target.value });
   }

@@ -25,6 +25,7 @@ function contacts_reducer(state = initialState, action) {
   console.log(action);
   switch (action.type) {
     case "ADD_CONTACT":
+      console.log(action);
       return {
         ...state,
         contactList: [
@@ -41,14 +42,11 @@ function contacts_reducer(state = initialState, action) {
         ],
       };
     case "UPDATE_CONTACT":
-      // ({ ...state }.contactList[action.index].name = action.value);
-      // console.log({ ...state }.contactList[action.index].name);
-      // console.log({ ...state }.contactList);
-      [...state.contactList][action.index][action.key] = action.value;
-      console.log([...state.contactList]);
       return {
         ...state,
-        contactList: [...state.contactList],
+        contactList: [
+          ([...state.contactList][action.index][action.key] = action.value),
+        ],
       };
     case "DELETE_CONTACT":
       let arr = state.contactList;

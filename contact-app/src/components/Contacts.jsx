@@ -25,7 +25,7 @@ class Contacts extends React.Component {
               );
             })}
           </ul>
-          <button>Add Contact</button>
+          <Link to="/add_contact">Add a Contact</Link>
         </CardContent>
       </Card>
     );
