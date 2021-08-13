@@ -18,7 +18,7 @@ class DeleteComfirm extends React.Component {
     return (
       <Card style={{ maxWidth: "500px", margin: "30px auto" }}>
         <CardContent>
-          <h3>Delete contact?</h3>
+          <h3>Delete Contact?</h3>
           <ul>
             <li>{this.props.contInfo.name}</li>
           </ul>

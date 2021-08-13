@@ -9,7 +9,7 @@ class Contacts extends React.Component {
     return (
       <Card style={{ maxWidth: "500px", margin: "30px auto" }}>
         <CardContent>
-          <h3>this is the contact list</h3>
+          <h3>Contact List:</h3>
           <ul>
             {this.props.contactList.map((contact, index) => {
               let pathName = `/contact_info/${index}`;
